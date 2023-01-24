@@ -98,17 +98,3 @@ class FoodStore {
         foodStore.start();
     }
 }
-
-// public void addToCart() {
-//     listFruitsForSale();
-//     System.out.println("Enter the name of the fruit you want to add to the cart: ");
-//     String name = scanner.nextLine();
-//     for (Fruit fruit : fruits) {
-//         if (fruit.getName().equalsIgnoreCase(name)) {
-//             String result = cart.addFruit(fruit);
-//             System.out.println(result);
-//             return;
-//         }
-//     }
-//     System.out.println("Fruit not found...");
-// }
