@@ -37,7 +37,10 @@ class Cart {
     }
 
     public void displayCart() {
+        System.out.println("-------------------");
+        System.out.println("---- Your cart ----");
         if (fruits.size() == 0) {
+            System.out.println("\n");
             System.out.println("The cart is empty.");
             return;
         }
@@ -56,6 +59,8 @@ class Cart {
             System.out.println(fruit.getName() + " x " + count + " - $" + (fruit.getPrice() * count));
         }
         System.out.println("Total price: $" + totalPrice);
+        System.out.println("-------------------");
+        // System.out.println("\n");
     }
 
 

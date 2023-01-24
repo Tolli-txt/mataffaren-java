@@ -19,10 +19,12 @@ class FoodStore {
     }
 
     public void listFruitsForSale() {
-        System.out.println("Fruits for sale: ");
+        System.out.println("-------------------");
+        System.out.println("- Fruits for sale - ");
         for (Fruit fruit : fruits) {
             System.out.println(fruit.getName() + " - Price: " + fruit.getPrice() + " - Quantity: " + fruit.getQuantity() + "\n");
         }
+        System.out.println("-------------------");
     }
 
     public void addToCart() {
@@ -60,7 +62,7 @@ class FoodStore {
     
     public void start() {
         while (true) {
-            System.out.println("Welcome to the fruit store.");
+            System.out.println("\nWelcome to the fruit store.");
             System.out.println("1. List fruits for sale");
             System.out.println("2. Add to cart");
             System.out.println("3. View cart");
