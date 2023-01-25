@@ -1,6 +1,8 @@
 package dev;
 
-abstract class Fruit {
+import java.io.Serializable;
+
+abstract class Fruit implements Serializable {
     private String name;
     private double price;
     private int quantity;
