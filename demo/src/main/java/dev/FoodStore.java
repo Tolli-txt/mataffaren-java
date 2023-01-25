@@ -14,9 +14,20 @@ class FoodStore implements Serializable {
         scanner = new Scanner(System.in);
 
         // Adding the fruits for sale
-        fruits.add(new Apple());
-        fruits.add(new Banana());
-        fruits.add(new Pineapple());
+        // fruits.add(new Apple());
+        // fruits.add(new Banana());
+        // fruits.add(new Pineapple());
+        fruits.add(new Berries("Strawberries", 6.49, 50));
+        fruits.add(new Berries("Raspberries", 5.99, 30));
+        fruits.add(new Berries("Blackberries", 5.99, 35));
+        fruits.add(new Berries("Blueberries", 4.99, 60));
+        fruits.add(new Berries("Redcurrants", 4.99, 30));
+        fruits.add(new Berries("Blackcurrants", 5.49, 20));
+        fruits.add(new Berries("Cranberries", 4.49, 60));
+        fruits.add(new Berries("Acai berries", 8.99, 30));
+        fruits.add(new Berries("Mulberries", 6.99, 15));
+        fruits.add(new Berries("Physalis", 7.49, 20));
+        fruits.add(new Berries("SUPER EXTREME BERRY: ULTRA LIMITED EDITION", 1337, 1));
     }
 
     public void listFruitsForSale() {
