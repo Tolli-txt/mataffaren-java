@@ -1,8 +1,9 @@
 package dev;
 
+import java.io.*;
 import java.util.*;
 
-class FoodStore {
+class FoodStore implements Serializable {
     private ArrayList<Fruit> fruits;
     private Cart cart;
     private Scanner scanner;
@@ -41,6 +42,35 @@ class FoodStore {
         System.out.println("Fruit not found...");
     }
     
+    private void saveFruits() {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("fruits.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(fruits);
+            out.close();
+            fileOut.close();
+        } catch (IOException i) {
+            System.out.println("ERROR: IOException in saveFruits");
+            // i.printStackTrace();
+        }
+    }
+
+    private void loadFruits() {
+        try {
+            FileInputStream fileIn = new FileInputStream("fruits.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            fruits = (ArrayList<Fruit>) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            System.out.println("ERROR: IOException in loadFruits");
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("ERROR: Fruit class not found.");
+            // c.printStackTrace();
+        }
+    }
+
     public void completePurchase() {
         double totalPrice = cart.getTotalPrice();
         if (totalPrice == 0) {
@@ -54,6 +84,7 @@ class FoodStore {
         if (answer.equalsIgnoreCase("y")) {
             cart.getFruits().clear();
             cart.setTotalPrice(0.0);
+            saveFruits();
             System.out.println("Purchase complete!");
         } else {
             System.out.println("Purchase cancelled.");
@@ -61,6 +92,7 @@ class FoodStore {
     }
     
     public void start() {
+        loadFruits();
         while (true) {
             System.out.println("\nWelcome to the fruit store.");
             System.out.println("1. List fruits for sale");
