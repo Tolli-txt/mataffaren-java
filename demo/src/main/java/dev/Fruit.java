@@ -2,6 +2,9 @@ package dev;
 
 import java.io.Serializable;
 
+// Main fruit class, used in other fruit subclass such as Berries.java
+// has the proper setters & getters aswell as implements Serializable which
+// makes it possible to serialize the stock of fruits between multiple sessions
 abstract class Fruit implements Serializable {
     private String name;
     private double price;
